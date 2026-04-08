@@ -1,5 +1,6 @@
 package me.fit.resource;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -30,10 +31,9 @@ public class EmployeeResource {
     }
 
     @GET
-    @Path("/search")
-    public List<Employee> findByPosition(@QueryParam("position") String position) {
-        return em.createQuery("select e from Employee e where e.position = :position", Employee.class)
-                .setParameter("position", position)
-                .getResultList();
+    @Path("/admin-only")
+    @RolesAllowed("admin")
+    public String adminOnly() {
+        return "Pristup dozvoljen samo admin korisniku.";
     }
 }
