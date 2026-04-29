@@ -2,6 +2,7 @@ package me.fit.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -21,4 +22,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     public List<CustomerOrder> orders;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public List<TimezoneInfo> timezones;
 }

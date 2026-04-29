@@ -5,7 +5,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import me.fit.entity.CustomerOrder;
 import me.fit.entity.OrderItem;
 
 import java.util.List;

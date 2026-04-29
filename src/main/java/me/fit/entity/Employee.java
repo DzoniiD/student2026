@@ -1,6 +1,7 @@
 package me.fit.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
